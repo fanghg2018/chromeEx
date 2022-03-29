@@ -1,0 +1,24 @@
+{
+  "name": "fiddler",
+  "version": "1.0.0.1",
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "content_scripts": [{
+    "matches": ["http://127.0.0.1:5500/*"],
+    "js": ["content.js"],
+    "run_at": "document_end"
+  }],
+
+  "web_accessible_resources": ["hook.js", "injected.js"],
+  "description": "chrome-fiddler",
+  "permissions": [
+    "tabs",
+    "*://*/*",
+    "webRequestBlocking",
+    "webRequest"
+  ],
+  "manifest_version": 2
+}
