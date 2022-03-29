@@ -1,6 +1,16 @@
 {
   "name": "fiddler",
   "version": "1.0.0.1",
+  "icons": {
+    "48": "icon48.png",
+    "64": "icon64.png"
+  },
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon16.png",
+    "default_title": "129"
+  },
 
   "background": {
     "scripts": ["background.js"],
@@ -16,6 +26,7 @@
   "description": "chrome-fiddler",
   "permissions": [
     "tabs",
+    "storage",
     "*://*/*",
     "webRequestBlocking",
     "webRequest"

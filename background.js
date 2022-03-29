@@ -1,3 +1,32 @@
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
+{
+	if(request.type == 'cmd') {
+    chrome.windows.create(
+      {
+        url:"index.html",
+        width: 1440,
+        height: 968,
+        type:"popup"
+      },(tabs)=>{
+        console.log(tabs);
+
+  })
+}
+
+})
+
+ 
+//接受连接
+chrome.runtime.onConnect.addListener(port => {
+  //监听连接消息
+  port.onMessage.addListener(msg => {
+    //收到消息 执行函数
+    console.log(msg);
+    
+  });
+});
+
+
 chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
     console.log(details.url);
